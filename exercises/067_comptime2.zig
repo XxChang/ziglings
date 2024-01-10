@@ -9,9 +9,7 @@
 //     *    |       *  .        .    .   .    --*--  .     *  .
 //  .     .    .    .   . . .      .        .   |   .    .  .
 //
-// When placed before a variable declaration, 'comptime'
-// guarantees that every usage of that variable will be performed
-// at compile time.
+// 在变量声明前放置'comptime'，可以保证每次对变量的使用都是在编译时．
 //
 // As a simple example, compare these two statements:
 //
@@ -35,7 +33,7 @@ pub fn main() void {
     // In this contrived example, we've decided to allocate some
     // arrays using a variable count! But something's missing...
     //
-    var count = 0;
+    comptime var count = 0;
 
     count += 1;
     var a1: [count]u8 = .{'A'} ** count;

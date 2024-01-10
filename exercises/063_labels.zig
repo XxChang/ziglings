@@ -128,7 +128,13 @@ pub fn main() void {
         // wanted for this Food.
         //
         // Please return this Food from the loop.
-        break;
+        break :food_loop Food{
+            .name = food.name,
+            .requires = food.requires,
+        };
+    } else Food{
+        .name = "Mac & Cheese",
+        .requires = [ingredients]bool{ false, true, false, true },
     };
     // ^ Oops! We forgot to return Mac & Cheese as the default
     // Food when the requested ingredients aren't found.
