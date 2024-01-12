@@ -6,7 +6,7 @@
 // compile time, and adding the 'comptime' keyword would be
 // superfluous, redundant, and smelly:
 //
-//    * The global scope (outside of any function in a source file)
+//    * 全局作用域 (outside of any function in a source file)
 //    * Type declarations of:
 //        * Variables
 //        * Functions (types of parameters and return values)
@@ -14,7 +14,7 @@
 //        * Unions
 //        * Enums
 //    * The test expressions in inline for and while loops
-//    * An expression passed to the @cImport() builtin
+//    * 传递给@cImport的某个表达式
 //
 // Work with Zig for a while, and you'll start to develop an
 // intuition for these contexts. Let's work on that now.
@@ -39,7 +39,7 @@ const llamas = makeLlamas(llama_count);
 
 // And here's the function. Note that the return value type
 // depends on one of the input arguments!
-fn makeLlamas(count: usize) [count]u8 {
+fn makeLlamas(comptime count: usize) [count]u8 {
     var temp: [count]u8 = undefined;
     var i = 0;
 
